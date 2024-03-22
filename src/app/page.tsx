@@ -16,9 +16,9 @@ export default function Home() {
   const handleClick = async () => {
     try {
       const token = window.localStorage.getItem("token");
-      axios.defaults.headers.common["H-shop-token"] = token;
+      axios.defaults.headers.common["Authorization"] = token;
       // 9788499087122
-      const res = await axios.get("https://webview-test-kappa.vercel.app/api/product");
+      const res = await axios.get("https://admin.hamelyn.com/api/v4/admin/orders/review/65c4cb54db7d0bdc9ca76314");
       setResult(res.data);
     } catch (error: unknown) {
       if (error instanceof Error) {
