@@ -1,11 +1,15 @@
+import { jwtDecode } from "jwt-decode";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
     const customHeader = request.headers.get("H-shop-token");
-    console.log(customHeader);
+    const token = customHeader ?? "";
 
-    if (customHeader === "DEFAULT_VALUE") {
-        return NextResponse.json({
+    const decoded = jwtDecode(token);
+
+    return NextResponse.json({
+        decoded,
+        product: {
             "_id": "9788499087122",
             "productType": "book",
             "categories": [
@@ -32,8 +36,6 @@ export async function GET(request: Request) {
                 "weight": 154,
                 "releaseYear": 2010
             }
-        }, { status: 200 });
-    }
-
-    return NextResponse.json({ message: "Error!" }, { status: 500 });
+        }
+    }, { status: 200 });
 }
