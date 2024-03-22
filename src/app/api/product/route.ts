@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
     const customHeader = request.headers.get("H-shop-token");
+    console.log(customHeader);
 
     if (customHeader === "DEFAULT_VALUE") {
         return NextResponse.json({
