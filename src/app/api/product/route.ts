@@ -3,7 +3,11 @@ import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
     const customHeader = request.headers.get("H-shop-token");
-    const token = customHeader ?? "";
+    const token = customHeader;
+
+    if (!token) {
+        return NextResponse.json({ message: "No token found" }, { status: 500 });
+    }
 
     const decoded = jwtDecode(token);
 
