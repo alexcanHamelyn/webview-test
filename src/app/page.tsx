@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [type, setType] = useState('');
-  const [data, setData] = useState('DEFAULT_VALUE');
+  const [data, setData] = useState('');
   const [result, setResult] = useState('');
   useEffect(() => {
     window.addEventListener('message', (event) => {
