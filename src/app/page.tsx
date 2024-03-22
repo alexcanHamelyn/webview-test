@@ -9,9 +9,7 @@ export default function Home() {
     window.addEventListener('message', (event) => {
       const { data } = event.data;
 
-      if (data) {
-        window.localStorage.setItem("token", data);
-      }
+      window.localStorage.setItem("token", data);
     });
   }, []);
 
