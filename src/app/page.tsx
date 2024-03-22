@@ -9,7 +9,7 @@ export default function Home() {
   const [result, setResult] = useState('');
   useEffect(() => {
     window.addEventListener('message', (event) => {
-      const { user } = event.data;
+      const { type, data } = event.data;
 
       if (type && data) {
         setType(type);
