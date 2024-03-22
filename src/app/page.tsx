@@ -41,6 +41,10 @@ export default function Home() {
       <div className="mt-10">
         <button onClick={handleClick} className="px-3 py-1 bg-green-600 rounded-full text-lg">Get 9788499087122 Product</button>
       </div>
+      <div>
+        <p>{JSON.stringify(data)}</p>
+        <p>{JSON.stringify(type)}</p>
+      </div>
       <div className="w-full flex flex-row justify-center items-center">
         <div className="w-1/2"><pre><code>{JSON.stringify(result, null, 2)}</code></pre></div>
       </div>
